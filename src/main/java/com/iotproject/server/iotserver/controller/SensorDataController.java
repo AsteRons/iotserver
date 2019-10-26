@@ -4,7 +4,7 @@ import com.iotproject.server.iotserver.service.SensorDataService;
 import com.iotproject.server.iotserver.model.SensorData;
 
 import java.util.Date;
-import java.util.LinkedHashMap;
+import java.util.TreeMap;
 import java.util.List;
 import java.util.Map;
 
@@ -43,7 +43,7 @@ public class SensorDataController {
     public String graphSensorData(Model theModel){
 
         List<SensorData> theSensorData = sensorDataService.findAll();
-        Map<Date, Integer> sensorDataMaps = new LinkedHashMap<>();
+        Map<Date, Integer> sensorDataMaps = new TreeMap<>();
 
         for(SensorData sensorDataMap : theSensorData)
         {
