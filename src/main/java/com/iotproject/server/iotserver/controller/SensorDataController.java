@@ -54,7 +54,7 @@ public class SensorDataController {
 
         return "sensorData/graph-sensorData";
     }
-    @RequestMapping("/showMyLoginPage")
+    @GetMapping("/showMyLoginPage")
     public String showMyLoginPage() {
 
         return "sensorData/plain-login";

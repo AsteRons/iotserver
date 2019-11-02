@@ -6,9 +6,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.User.UserBuilder;
-import org.springframework.security.web.access.AccessDeniedHandler;
+
 
 
 @Configuration
@@ -16,15 +14,14 @@ import org.springframework.security.web.access.AccessDeniedHandler;
 public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
-
+    @Autowired
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
-        // add our user for in memory authentication
 
         auth.inMemoryAuthentication()
-                .withUser("John").password("test123").roles("USER")
+                .withUser("user").password("password").roles("USER")
                 .and()
-                .withUser("Admin").password("test123").roles("ADMIN");
+                .withUser("Adam").password("test123").roles("ADMIN");
 
 
     }
@@ -32,19 +29,21 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        http.authorizeRequests()
-                    .antMatchers("/sensorData", "/sensorData/list", "/sensorData/graphSensorData_1").permitAll()
-                //.antMatchers("/sensorData/**").hasRole("ADMIN")
+        http.csrf().disable().authorizeRequests()
+                .antMatchers("/sensorData/showMyLoginPage").permitAll()
+                .antMatchers("/sensorData/**").hasRole("ADMIN")
+                .antMatchers("/**").hasRole("MANAGER")
                 .anyRequest().authenticated()
                     .and()
                 .formLogin()
+                .loginProcessingUrl("/sensorData/list") // Submit URL
                     .loginPage("/sensorData/showMyLoginPage")
-                    //.loginProcessingUrl("/authenticateTheUser")
+                    .defaultSuccessUrl("/sensorData/list")
+                    .loginProcessingUrl("/authenticateTheUser")
                     .permitAll()
                 .and()
                 .logout()
-                    .permitAll();
-
+                .permitAll();
 
 
     }
