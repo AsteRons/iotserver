@@ -21,7 +21,7 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.inMemoryAuthentication()
                 .withUser("user").password("{noop}password").roles("USER")
                 .and()
-                .withUser("Adam").password("{noop}test123").roles("ADMIN");
+                .withUser("Admin").password("{noop}test123").roles("ADMIN");
 
 
     }
@@ -32,7 +32,7 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable().authorizeRequests()
                 .antMatchers("/sensorData/showMyLoginPage").permitAll()
                 .antMatchers("/sensorData/**").hasRole("ADMIN")
-                .antMatchers("/**").hasRole("MANAGER")
+                .antMatchers("/**").hasRole("USER")
                 .anyRequest().authenticated()
                     .and()
                 .formLogin()
