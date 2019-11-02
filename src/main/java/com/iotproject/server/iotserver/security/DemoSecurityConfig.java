@@ -1,6 +1,6 @@
 package com.iotproject.server.iotserver.security;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -14,14 +14,14 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
-    @Autowired
+
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
 
         auth.inMemoryAuthentication()
-                .withUser("user").password("password").roles("USER")
+                .withUser("user").password("{noop}password").roles("USER")
                 .and()
-                .withUser("Adam").password("test123").roles("ADMIN");
+                .withUser("Adam").password("{noop}test123").roles("ADMIN");
 
 
     }
@@ -38,8 +38,8 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginProcessingUrl("/sensorData/list") // Submit URL
                     .loginPage("/sensorData/showMyLoginPage")
-                    .defaultSuccessUrl("/sensorData/list")
-                    .loginProcessingUrl("/authenticateTheUser")
+                    .defaultSuccessUrl("/sensorData/list", true)
+
                     .permitAll()
                 .and()
                 .logout()

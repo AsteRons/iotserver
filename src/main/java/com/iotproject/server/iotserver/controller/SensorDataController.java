@@ -30,7 +30,7 @@ public class SensorDataController {
 
     // add mapping for "/list"
 
-    @GetMapping("/list")
+    @RequestMapping("/list")
     public String listSensorData(Model theModel){
 
         List<SensorData> theSensorData = sensorDataService.findAll();

@@ -29,8 +29,8 @@
             <div style="padding-top: 30px" class="panel-body">
 
                 <!-- Login Form -->
-                <form action="@{/sensorData/showMyLoginPage}/authenticateTheUser"
-                      method="post" >
+                <form action="/sensorData/list"
+                      method="POST" >
                     <fieldset>
 
                         <div th:if="${param.error}">
