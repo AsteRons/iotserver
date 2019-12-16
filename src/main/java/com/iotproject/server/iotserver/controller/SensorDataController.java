@@ -35,21 +35,16 @@ public class SensorDataController {
 
         List<SensorData> theSensorData = sensorDataService.findAll();
         theModel.addAttribute("sensorData", theSensorData);
-
         return "sensorData/list-sensorData";
     }
 
     @GetMapping("/gaugeSensorData_1")
     public String graphSensorDataPointer(Model theModel){
-
-        List<SensorData> theSensorData = sensorDataService.findAll();
-        Map<Date, Integer> sensorDataMaps = new TreeMap<>();
-
-        for(SensorData sensorDataMap : theSensorData)
-        {
-            sensorDataMaps.put(sensorDataMap.getTimestamp(), sensorDataMap.getNtuValue());
-        }
-        theModel.addAttribute("sensorDataMaps", sensorDataMaps);
+        List<SensorData> theSensorDataPointer = sensorDataService.findAll();
+        SensorData valuePointers = theSensorDataPointer.get(theSensorDataPointer.size() - 1);
+        //int valuePointer = valuePointers.getNtuValue();
+        theModel.addAttribute("theSensorDataPointers", valuePointers);
+        System.out.println(valuePointers.getNtuValue());
         return "sensorData/gauge-sensorData";
     }
 
