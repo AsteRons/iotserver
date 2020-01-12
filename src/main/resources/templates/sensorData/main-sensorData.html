@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Projekt IoT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Projekt Internet of Things"/>
+    <meta name="keywords" content="IoT"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="author" content="Kruczek"/>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="css/bootstrap-4-navbar.css" rel="stylesheet">
+
+    <style>
+        body
+        {
+        background-color: #2F3336;
+        color: #efefef;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 20px;
+        }
+
+        h1
+        {
+            font-size: 40px;
+            font-weight: 400;
+            color: #C0D06F;
+            margin: 20px;
+        }
+
+        .content
+        {
+            text-align: center;
+        }
+
+        .content img
+        {
+            width: 100%;
+            height: auto;
+        }
+
+        .content p
+        {
+            margin-bottom: 30px;
+        }
+
+        .content figcaption
+        {
+            margin-top: 8px;
+        }
+        .navbar
+        {
+            min-height: 57px;
+        }
+
+        .bg-content
+        {
+            background-color: #91a33b !important;
+        }
+    </style>
+</head>
+<body>
+    <header>
+
+        <nav class="navbar navbar-dark bg-content navbar-expand-md">
+
+            <a class="navbar-brand" href="#">IoT</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainmenu">
+
+                <ul class="navbar-nav mr-auto">
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#"> Start </a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Urządzenia
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item dropdown-toggle" href="#">SEN0189</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Tabela</a></li>
+                                    <li><a class="dropdown-item" href="#">Wykres</a></li>
+                                    <li><a class="dropdown-item" href="#">Wskaźnik</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#"> Download </a>
+                    </li>
+
+                </ul>
+
+                <form class="form-inline">
+
+                    <button class="btn btn-light" type="submit">Wyloguj</button>
+
+                </form>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <main>
+
+        <section class="content">
+
+            <div class="container">
+
+                <header>
+
+                    <h1>Czujnik mętności wody SEN0189</h1>
+                    <p>W tej części prezentujemy możliwośc wybrania sposobu wyświetlenia zebranych danych z czujnika.</p>
+
+                </header>
+
+                <div class="row">
+
+                    <div class="col-sm-6 col-md-4">
+
+                        <figure>
+                            <a href="#"><img src="img/table.png" alt="Tabela"></a>
+                            <figcaption>Tabela</figcaption>
+                        </figure>
+
+                    </div>
+
+                    <div class="col-sm-6 col-md-4">
+
+                        <figure>
+                            <a href="#"><img src="img/graph.png" alt="Wykres"></a>
+                            <figcaption>Wykres</figcaption>
+                        </figure>
+
+                    </div>
+
+                    <div class="col-sm-6 col-md-4">
+
+                        <figure>
+                            <a href="#"><img src="img/indicator.png" alt="Indicator"></a>
+                            <figcaption>Wskażnik</figcaption>
+                        </figure>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="js/bootstrap-4-navbar.js"></script>
+
+</body>
+</html>
