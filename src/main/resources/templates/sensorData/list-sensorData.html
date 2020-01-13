@@ -96,12 +96,14 @@
                     <li class="nav-item">
                         <a class="nav-link disabled" href="#"> Download </a>
                     </li>
-
+                    <p align="right">
+                    <li class="form-inline">
+                        <a class="nav-link" href="/logout"> Wyloguj </a>
+                    </li>
+                    </p>
                 </ul>
 
-                <form class="form-inline">
-                    <a class="nav-link" href="#"> Wyloguj </a>
-                </form>
+
 
             </div>
 
@@ -126,7 +128,7 @@
                     <tbody>
 
                     <tr  th:each="tempSensorData : ${sensorData}">
-                        <td th:text="${tempSensorData.id}" />
+                        <td th:text="${((tempSensorData.id-1)/10)+1}" />
                         <td th:text="${tempSensorData.deviceID}" />
                         <td th:text="${tempSensorData.ntuValue}" />
                         <td th:text="${tempSensorData.timestamp}" />
