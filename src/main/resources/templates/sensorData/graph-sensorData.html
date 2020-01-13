@@ -18,7 +18,7 @@
     <style>
         body
         {
-        background-color: #2F3336;
+
         color: #efefef;
         font-family: 'Open Sans', sans-serif;
         font-size: 20px;
@@ -116,51 +116,8 @@
     <main>
         <section class="content">
             <div class="container">
-                <h2 align="center">Poziom czystosci wody</h2>
-                <script th:inline="javascript">
-                    $(function(){
-                        Highcharts.chart('container', {
-                            chart: {
-                                type: 'line'
-                            },
-                            title: {
-                                text: 'IoT wykres'
-                            },
-                            subtitle: {
-                                text: ' wody'
-                            },
-                            xAxis: {
-                                categories: [[${sensorDataMaps.keySet()}]],
-                                crosshair: true
-                            },
-                            yAxis: {
-                                min: 0,
-                                max: 3200,
-                                title: {
-                                    text: 'Czystosc wody [NTU]'
-                                }
-                            },
-                            tooltip: {
-                                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-                                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                                    '<td style="padding:0"><b>{point.y:.1f} </b></td></tr>',
-                                footerFormat: '</table>',
-                                shared: true,
-                                useHTML: true
-                            },
-                            plotOptions: {
-                                column: {
-                                    pointPadding: 0.2,
-                                    borderWidth: 0
-                                }
-                            },
-                            series: [{
-                                name: 'Czystosc wody',
-                                data: [[${sensorDataMaps.values()}]]
-                            }]
-                        });
-                    });
-                </script>
+                <h1 align="center">Poziom czystosci wody</h1>
+                <div id="container" style="width: 1200px; height: 600px; margin: 0 auto"></div>
             </div>
         </section>
     </main>
@@ -172,5 +129,51 @@
         <script src="https://code.highcharts.com/modules/exporting.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script th:inline="javascript">
+            $(function(){
+                Highcharts.chart('container', {
+                    chart: {
+                        type: 'line'
+                    },
+                    title: {
+                        text: 'IoT wykres'
+                    },
+                    subtitle: {
+                        text: ' wody'
+                    },
+                    xAxis: {
+                        categories: [[${sensorDataMaps.keySet()}]],
+                        crosshair: true
+                    },
+                    yAxis: {
+                        min: 0,
+                        max: 3200,
+                        title: {
+                            text: 'Czystosc wody [NTU]'
+                        }
+                    },
+                    tooltip: {
+                        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                            '<td style="padding:0"><b>{point.y:.1f} </b></td></tr>',
+                        footerFormat: '</table>',
+                        shared: true,
+                        useHTML: true
+                    },
+                    plotOptions: {
+                        column: {
+                            pointPadding: 0.2,
+                            borderWidth: 0
+                        }
+                    },
+                    series: [{
+                        name: 'Czystosc wody',
+                        data: [[${sensorDataMaps.values()}]]
+
+                    }]
+                });
+            });
+        </script>
 </body>
 </html>

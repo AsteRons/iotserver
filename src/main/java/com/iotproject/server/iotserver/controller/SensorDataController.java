@@ -69,4 +69,11 @@ public class SensorDataController {
 
     }
 
+    @RequestMapping("/showMyMainPage")
+    public String showMyMainPage() {
+
+        return "sensorData/main-sensorData";
+
+    }
+
 }

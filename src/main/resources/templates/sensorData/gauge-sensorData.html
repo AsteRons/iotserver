@@ -111,39 +111,8 @@
     <main>
         <section class="content">
             <div class="container">
-                <!-- <div id="chart_div" style="width: 400px; height: 120px;"></div>-->
-                    <script th:inline="javascript">
-                        google.charts.load('current', {'packages':['gauge']});
-                        google.charts.setOnLoadCallback(drawChart);
+                <h1 align="center"> <div id="chart_div" style="width: 400px; height: 120px;"></div></h1>
 
-
-                        function drawChart() {
-
-                        var data = google.visualization.arrayToDataTable([
-                          ['Label', 'Value'],
-                          ['ntu', 0],
-                        ]);
-
-                        var options = {
-                          width: 400, height: 400,
-                          //redFrom: 90, redTo: 100,
-                          //yellowFrom:75, yellowTo: 90,
-                          max: 3000,
-                          minorTicks: 5
-                        };
-
-                        var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
-
-                        chart.draw(data, options);
-
-                        //console.log(${theSensorDataPointers.ntuValue});
-                        setInterval(function() {
-                          data.setValue(0, 1, 2345);
-                          chart.draw(data, options);
-                        }, 130);
-                      }
-
-                    </script>
             </div>
         </section>
     </main>
@@ -152,6 +121,37 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="js/bootstrap-4-navbar.js"></script>
+    <script th:inline="javascript">
+        google.charts.load('current', {'packages':['gauge']});
+        google.charts.setOnLoadCallback(drawChart);
+
+
+        function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+        ['Label', 'Value'],
+        ['ntu', 0],
+        ]);
+
+        var options = {
+        width: 400, height: 400,
+        //redFrom: 90, redTo: 100,
+        //yellowFrom:75, yellowTo: 90,
+        max: 3000,
+        minorTicks: 5
+        };
+
+        var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+
+        //console.log(${theSensorDataPointers.ntuValue});
+        setInterval(function() {
+        data.setValue(0, 1, 2345);
+        chart.draw(data, options);
+        }, 130);
+        }
+    </script>
 </body>
 </html>
 
