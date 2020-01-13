@@ -42,11 +42,12 @@ public class SensorDataController {
     public String graphSensorDataPointer(Model theModel){
         List<SensorData> theSensorDataPointer = sensorDataService.findAll();
         SensorData valuePointers = theSensorDataPointer.get(theSensorDataPointer.size() - 1);
-        //int valuePointer = valuePointers.getNtuValue();
-        theModel.addAttribute("theSensorDataPointers", valuePointers);
-        System.out.println(valuePointers.getNtuValue());
+        int valuePointer = valuePointers.getNtuValue();
+        theModel.addAttribute("theSensorDataPointers", valuePointer);
+        System.out.println(valuePointer);
         return "sensorData/gauge-sensorData";
     }
+
 
     @GetMapping("/graphSensorData_1")
     public String graphSensorData(Model theModel){

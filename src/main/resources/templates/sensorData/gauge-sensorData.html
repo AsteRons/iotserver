@@ -118,6 +118,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="js/bootstrap-4-navbar.js"></script>
     <script th:inline="javascript">
+        var globalna = /*[[${theSensorDataPointers}]]*/'default';
+
+        console.log(globalna)
+
         google.charts.load('current', {'packages':['gauge']});
         google.charts.setOnLoadCallback(drawChart);
 
@@ -143,7 +147,7 @@
 
         //console.log(${theSensorDataPointers.ntuValue});
         setInterval(function() {
-        data.setValue(0, 1, 2344);
+        data.setValue(0, 1, globalna);
         chart.draw(data, options);
         }, 130);
         }
