@@ -40,7 +40,7 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginProcessingUrl("/sensorData/list") // Submit URL
                     .loginPage("/sensorData/showMyLoginPage")
-                    .defaultSuccessUrl("/sensorData/list")
+                    .defaultSuccessUrl("/sensorData/list", true)
 
                 .and()
                 .logout()
