@@ -29,8 +29,13 @@ public class SensorDataController {
     }
 
     // add mapping for "/list"
-
     @RequestMapping("/list")
+    public String showMyMainPage() {
+
+        return "sensorData/main-sensorData";
+
+    }
+    @RequestMapping("/lista")
     public String listSensorData(Model theModel){
 
         List<SensorData> theSensorData = sensorDataService.findAll();
@@ -70,11 +75,5 @@ public class SensorDataController {
 
     }
 
-    @RequestMapping("/showMyMainPage")
-    public String showMyMainPage() {
-
-        return "sensorData/main-sensorData";
-
-    }
 
 }
